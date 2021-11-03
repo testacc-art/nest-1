@@ -1,6 +1,6 @@
 name: Nest
 
-on: [push, pull_request]
+on: [push, pull_request, workflow_dispatch]
   
 jobs:
   package:
@@ -30,9 +30,9 @@ jobs:
           COMMIT_IDENTIFIER: ${{ github.sha }}
         run: yarn bundle:release
 
-      - name: Upload artifact to S3
-        env:
-          AWS_REGION: us-east-1
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        run: aws s3 cp bundle.zip s3://${{ secrets.AWS_S3_LAMBDA_BUCKET }}/commits/${{ github.sha }}.zip
+#       - name: Upload artifact to S3
+#         env:
+#           AWS_REGION: us-east-1
+#           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+#           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+#         run: aws s3 cp bundle.zip s3://${{ secrets.AWS_S3_LAMBDA_BUCKET }}/commits/${{ github.sha }}.zip
