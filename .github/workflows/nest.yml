@@ -17,7 +17,7 @@ jobs:
       - run: yarn cache dir
 
       - name: Setup Node.js
-        uses: actions/setup-node@v2.4.1
+        uses: dmitry-shibanov/setup-node@error-output
         with:
           node-version: '16'
           cache: 'yarn'
