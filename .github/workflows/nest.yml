@@ -14,7 +14,7 @@ jobs:
         with:
           length: 6
           
-      - run: yarn cache dir
+#       - run: yarn cache dir
 
       - name: Setup Node.js
         uses: actions/setup-node@v2.4.1
